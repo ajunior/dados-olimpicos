@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Informações sobre os Jogos Olímpicos.">
-        <meta name="keyword" content="olympics, olimpiadas, data, jogos">
+        <meta name="description" content="Ranking de medalhas dos jogos olímpicos.">
+        <meta name="keyword" content="olympics, olimpiadas, ranking, medalhas">
         <meta name="author" content="Adjamilton Junior">
         <title>Ranking Olímpico</title>
         <link rel="icon" type="image/png" href="img/oie_transparent.png">
@@ -13,6 +13,59 @@
         <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {packages: ['corechart', 'bar']});
+            google.charts.setOnLoadCallback(drawRightY);
+
+            function drawRightY() {
+                //console.log(country);
+                var data = google.visualization.arrayToDataTable([
+                    ['País', 'Total'],
+                    [country[15]['abr'], country[15]['total']],
+                    [country[14]['abr'], country[14]['total']],
+                    [country[13]['abr'], country[13]['total']],
+                    [country[12]['abr'], country[12]['total']],
+                    [country[11]['abr'], country[11]['total']],
+                    [country[10]['abr'], country[10]['total']],
+                    [country[9]['abr'], country[9]['total']],
+                    [country[8]['abr'], country[8]['total']],
+                    [country[7]['abr'], country[7]['total']],
+                    [country[6]['abr'], country[6]['total']],
+                    [country[5]['abr'], country[5]['total']],
+                    [country[4]['abr'], country[4]['total']],
+                    [country[3]['abr'], country[3]['total']],
+                    [country[2]['abr'], country[2]['total']],
+                    [country[1]['abr'], country[1]['total']],
+                    [country[0]['abr'], country[0]['total']]
+                ]);
+
+                var options = {
+                    chart: {
+                        title: 'Ranking Olímpico',
+                        subtitle: '10 melhores países, por total de medalha'
+                    },
+                    hAxis: {
+                        title: 'Total Population',
+                        minValue: 1,
+                    },
+                    vAxis: {
+                        title: 'Países'
+                    },
+                    bars: 'vertical',
+                    height: 400,
+                    axes: {
+                        y: {
+                            0: {side: 'right'}
+                        }
+                    }
+                };
+                var material = new google.charts.Bar(document.getElementById('chart_div'));
+                material.draw(data, options);
+            }
+        </script>
+
     </head>
     <body>
         <header>
@@ -64,6 +117,18 @@
                         </tbody>
                     </table>
                 </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <div id="chart_div" class="text-center"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-1"></div>
             </div>

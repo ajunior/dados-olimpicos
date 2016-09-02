@@ -1,7 +1,7 @@
 var country = null;
 
 function getJson() {
-    let url = `http://10.0.134.223:9000/country-medals.json`;
+    let url = `http://192.168.0.100:9000/country-medals.json`;
     makeRequest({
         url: url,
         sucessfulCallback: (response) => {
