@@ -1,7 +1,7 @@
 var country = null;
 
 function getJson() {
-    let url = `http://10.0.55.145:9000/country-medals.json`;
+    let url = `http://10.0.134.223:9000/country-medals.json`;
     makeRequest({
         url: url,
         sucessfulCallback: (response) => {
@@ -50,46 +50,32 @@ function makeRequest({
     xhr.send(data);
 }
 
-// var busca = document.querySelector("#buscador");
-// function search() {
-//     let buscaValue = busca.value;
-//     pokemons.forEach(function(pk) {
-//         if(/^([a-zA-Z])$/.test(buscaValue) === pk.name) {
-//             document.querySelector('#dados').innerHTML += `
-//                     <div class="row">
-//                         <div class="col-sm-6 col-md-4">
-//                             <div class="thumbnail">
-//                                 <img src="http://localhost:9000/${pk.img}">
-//                                 <div class="caption">
-//                                     <h3>${pk.name}</h3>
-//                                     <p>R$ ${parseFloat(pk.price).toFixed(2)}</p>
-//                                     <p><a href="#" class="btn btn-primary" role="button">Comprar</a>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>`;
-//         }
-//     });
-// };
-
-//document.querySelector('#cadastrar').onclick = function(){
-function search() {
-    let buscaValue = document.querySelector("#buscador").value;
+document.querySelector('#pesquisar').addEventListener('click', search, false);
+function search(event) {
+    event.preventDefault();
+    var buscaValue = document.querySelector("#buscador").value;
+    var re = new RegExp("brasil", "gi");
     console.log(buscaValue);
-    country.forEach(function(cty) {
-        if (cty.name.matches()) {
+    console.log(re);
+    country.forEach(function(cty, cont = 1) {
+        var str = `${cty.name}`;
+        //console.log("cty: " + str);
+        if (str.match(re) !== null) {
             var newRow = `<tr>
-                    <td>${cty.name}</td>
-                    <td class="text-center">${cty.abr}</td>
-                    <!--<td class="text-center"></td>-->
-                    <td class="text-center">${cty.gold}</td>
-                    <td class="text-center">${cty.silver}</td>
-                    <td class="text-center">${cty.bronze}</td>
-                    <td class="text-center ">${cty.total}</td>
+                    <td class="text-center">${cont+1}</td>
+                            <td>${cty.name}</td>
+                            <td class="text-center">${cty.abr}</td>
+                            <td class="text-center"><img class="flag" src="img/flags/${cty.abr}.png"</td>
+                            <td class="text-center">${cty.gold}</td>
+                            <td class="text-center">${cty.silver}</td>
+                            <td class="text-center">${cty.bronze}</td>
+                            <td class="text-center ">${cty.total}</td>
                 </tr>`;
             $('#tbl-ranking-tbody').append(newRow);
+            cont += 1;
         }
     });
-};
+    return false;
+}
 
 getJson();

@@ -1,2 +1,9 @@
-# dados-olimpicos
-Repositório da aplicação web desenvolvida como projeto final da disciplina de Linguagem de Script (Javascript).
+# Ranking Olímpico
+
+Esta aplicação lista o ranking de medalhas da olimpiada Rio 2016.
+
+# Tecnologias utilizadas
+
+* ExpressJS
+* Bootstrap
+* FontAwesome
