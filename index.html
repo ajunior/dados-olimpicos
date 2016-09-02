@@ -6,34 +6,75 @@
         <meta name="description" content="Informações sobre os Jogos Olímpicos.">
         <meta name="keyword" content="olympics, olimpiadas, data, jogos">
         <meta name="author" content="Adjamilton Junior">
-        
-        <title>Dados Olímpicos</title>
-        
+        <title>Ranking Olímpico</title>
+        <link rel="icon" type="image/png" href="img/oie_transparent.png">
         <link ref="stylesheet" type="text/css" href="css/html5reset-1.6.1.css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
-
-        <script></script>
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+        <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
     </head>
     <body>
-        <div class="container-fluid">
-            <header>
-                <img src="img/olympic_rings_with_transparent_rims.svg"
-            </header>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="index.html">
+                            <span><img class="text-center" id="brand-logo" src="img/oie_transparent.png"></span><span id="brand-logo-medalhistas">RANKING</span><span id="brand-logo-olimpicos">OLÍMPICO</span>
+                        </a>
+                    </div>
+                    <!-- SEARCH BAR -->
+                    <div class="navbar-nav navbar-right">
 
-            <section></section>
-            <p>Dados Olímpicos</p>
-            
-            <footer>
-                <p>There's no copyright. It´s not a oficial website.</p>
-            </footer>
-        </div>
+                        <div id="search-bar">
+                            <div class="row text-center">
+                                <form class="input-group stylish-input-group">
+                                    <input id="buscador" type="text" class="form-control"  placeholder="Pesquisar país...">
+                                    <span class="input-group-addon">
+                                        <button id="procurar" type="submit" onlick="search()">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                <div class="panel panel-primary">
+                    <table id="tbl-ranking" class="table table-hover">
+                        <thead class="thead">
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>País</th>
+                                <th class="text-center">Sigla</th>
+                                <th class="text-center">Bandeira</th>
+                                <th class="text-center"><img class="medals" src="img/ic_medal-small-gold_2x.png"></th>
+                                <th class="text-center"><img class="medals" src="img/ic_medal-small-silver_2x.png"></th>
+                                <th class="text-center"><img class="medals" src="img/ic_medal-small-bronze_2x.png"></th>
+                                <th class="text-center"><img class="medals" src="img/ic_medal-small-total_2x.png"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl-ranking-tbody" class="tbody">
+                            <!-- As linhas serão inseridas aqui -->
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </section>
+
+        <footer class="row">
+            <p class="text-center">Made with <i class="fa fa-heart" aria-hidden="true"></i> by Adjamilton Junior</p>
+        </footer>
     </body>
 </html>
-
-<!-- 
-    TODO: Favicon
-    TODO: Top 10 atletas
-    TODO: Ranking Olímpico (Países)
-    TODO: Quantidades de medalhas de ouro, prata e bronze
--->
